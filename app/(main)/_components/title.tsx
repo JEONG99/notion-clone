@@ -18,11 +18,11 @@ const Title = ({ initialData }: TitleProps) => {
   const update = useMutation(api.documents.update);
 
   const [title, setTitle] = useState(initialData.title || "Untitled");
-  const [isEditting, setIsEditting] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
   const enableInput = () => {
     setTitle(initialData.title);
-    setIsEditting(true);
+    setIsEditing(true);
     setTimeout(() => {
       inputRef.current?.focus();
       inputRef.current?.setSelectionRange(0, inputRef.current.value.length);
@@ -30,7 +30,7 @@ const Title = ({ initialData }: TitleProps) => {
   };
 
   const disableInput = () => {
-    setIsEditting(false);
+    setIsEditing(false);
   };
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,7 +50,7 @@ const Title = ({ initialData }: TitleProps) => {
   return (
     <div className="flex items-center gap-x-1">
       {!!initialData.icon && <p>{initialData.icon}</p>}
-      {isEditting ? (
+      {isEditing ? (
         <Input
           ref={inputRef}
           onClick={enableInput}
