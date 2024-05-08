@@ -17,11 +17,11 @@ import { api } from "@/convex/_generated/api";
 import { cn } from "@/lib/utils";
 import UserItem from "@/app/(main)/_components/user-item";
 import Item from "@/app/(main)/_components/item";
+import DocumentList from "@/app/(main)/_components/document-list";
 
 const Navigation = () => {
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const documents = useQuery(api.documents.get);
   const create = useMutation(api.documents.create);
 
   const isResizingRef = useRef(false);
@@ -142,9 +142,7 @@ const Navigation = () => {
           <Item onClick={handleCreate} label="New page" icon={PlusIcon} />
         </div>
         <div className="mt-4">
-          {documents?.map((document) => (
-            <p key={document._id}>{document.title}</p>
-          ))}
+          <DocumentList />
         </div>
         <div
           onMouseDown={handleMouseDown}
