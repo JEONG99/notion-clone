@@ -1,5 +1,6 @@
 "use client";
 
+import { toast } from "sonner";
 import { useUser } from "@clerk/clerk-react";
 import { useMutation } from "convex/react";
 import { PlusCircle } from "lucide-react";
@@ -7,7 +8,6 @@ import Image from "next/image";
 import { api } from "@/convex/_generated/api";
 
 import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
 
 const DocumentsPage = () => {
   const { user } = useUser();
