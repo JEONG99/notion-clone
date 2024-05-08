@@ -32,7 +32,7 @@ const DocumentList = ({ parentDocumentId, level = 0 }: DocumentListProp) => {
   });
 
   const onRedirect = (documentId: string) => {
-    router.push(`/document/${documentId}`);
+    router.push(`/documents/${documentId}`);
   };
 
   if (documents === undefined) {
